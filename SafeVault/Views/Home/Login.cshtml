@@ -1,0 +1,43 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.Username"></label>
+        <input asp-for="Input.Username" />
+        <span asp-validation-for="Input.Username"></span>
+    </div>
+    <div>
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" type="password" />
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+    <button type="submit">Login</button>
+    <div style="color:red">@Model.ErrorMessage</div>
+</form>
+
+
+<h2>Register</h2>
+<form method="post" asp-page-handler="Register">
+    <div>
+        <label asp-for="Register.Username"></label>
+        <input asp-for="Register.Username" />
+        <span asp-validation-for="Register.Username"></span>
+    </div>
+    <div>
+        <label asp-for="Register.Password"></label>
+        <input asp-for="Register.Password" type="password" />
+        <span asp-validation-for="Register.Password"></span>
+    </div>
+    <button type="submit">Register</button>
+    <div style="color:green">@Model.RegisterMessage</div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
